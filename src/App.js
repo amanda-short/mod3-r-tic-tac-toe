@@ -1,13 +1,9 @@
 import './App.css';
-import { useGameContext } from './GameContext.js';
+import Game from './component/Game.js';
+
 
 function App() {
-  const { state } = useGameContext();
-  return (
-    <div className="App">
-      <Section></Section>
-    </div>
-  );
+  return <Game />;
 }
 
 export default App;

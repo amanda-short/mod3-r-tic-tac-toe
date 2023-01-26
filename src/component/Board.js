@@ -1,18 +1,69 @@
-import { useGameContext } from '../GameContext.js';
+import React from 'react';
+import Square from './Square.js';
 
-export default function Board({ state }) {
-  const { state } = useGameContext();
-    return (
-      <div className="board">
-        <div className="pos1"></div>
-        <div className="pos2"></div>
-        <div className="pos3"></div>
-        <div className="pos4"></div>
-        <div className="pos5"></div>
-        <div className="pos6"></div>
-        <div className="pos7"></div>
-        <div className="pos8"></div>
-        <div className="pos9"></div>
+export default function Board(props) {
+  return (
+    <div className="board">
+      <div>
+        <Square
+          value={props.squares[0]}
+          onClick={() => {
+            props.onClick(0);
+          }}
+        />
+        <Square
+          value={props.squares[1]}
+          onClick={() => {
+            props.onClick(1);
+          }}
+        />
+        <Square
+          value={props.squares[2]}
+          onClick={() => {
+            props.onClick(2);
+          }}
+        />
       </div>
-    );
+      <div>
+        <Square
+          value={props.squares[3]}
+          onClick={() => {
+            props.onClick(3);
+          }}
+        />
+        <Square
+          value={props.squares[4]}
+          onClick={() => {
+            props.onClick(4);
+          }}
+        />
+        <Square
+          value={props.squares[5]}
+          onClick={() => {
+            props.onClick(5);
+          }}
+        />
+      </div>
+      <div>
+        <Square
+          value={props.squares[6]}
+          onClick={() => {
+            props.onClick(6);
+          }}
+        />
+        <Square
+          value={props.squares[7]}
+          onClick={() => {
+            props.onClick(7);
+          }}
+        />
+        <Square
+          value={props.squares[8]}
+          onClick={() => {
+            props.onClick(8);
+          }}
+        />
+      </div>
+    </div>
+  );
 }

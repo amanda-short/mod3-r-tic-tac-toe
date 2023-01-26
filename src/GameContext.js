@@ -1,14 +1,14 @@
-import { createContext, useContext } from 'react';
+// import { createContext, useContext } from 'react';
 
-const GameContext = createContext();
+// const GameContext = createContext();
 
-const GameProvider = ({ children }) => {
-  return <GameContext.Provider value={{ state }}> {children}</GameContext.Provider>;
-};
+// const GameProvider = ({ children }) => {
+//   return <GameContext.Provider value={{ state }}> {children}</GameContext.Provider>;
+// };
 
-const useGameContext = () => {
-  const context = useContext(GameContext);
-  return context;
-};
+// const useGameContext = () => {
+//   const context = useContext(GameContext);
+//   return context;
+// };
 
-export { GameProvider, useGameContext };
+// export { GameProvider, useGameContext };
