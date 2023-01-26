@@ -1,53 +1,50 @@
-# Alchemy React Base Template
+## To Do List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1) Set up your GameContext and initialize your board state (I would model the board as an array of objects that track the space number and the content in the space. Empty spaces can just have an empty string. {space: 4, content: ''}))
 
-Use this template for all your "from scratch" deliverables. To start, simply run
+2) Initialize your state
+    - currentPlayer (‘X’ or ‘O’)
+    - active (true / false)
+    - gameMessage (says who’s turn it is, who won or if its a cats game)
 
-- `npm install`
-- `npm start`
+3) Create a Board component which reads the board state from the context and renders a Box component for each space
 
-## Available Scripts
+4) Add a click handler to the Box component that calls a function in the context for handling a space click
 
-In the project directory, you can run:
+5) Add the logic for handling the space click in game context
+    - If the space already contains an ‘X’ or an ‘O’, return
+    - If the game is no longer active, return
+    - Otherwise, set the space’s content to the current player
+    - Switch current player
 
-### `npm start`
+6) On every render of the App, you should check the game status and set active to false if any of the “end game” conditions are met
+    - All spaces are taken (Cats / Scratch game)
+    - A player has 3 in a row (don’t be too clever about this - you can just have repetitive code to check for a winner)
+    - If the end game conditions are met, update active and the game message
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+7) Add a button to reset the game
+    - Should reset the board
+    - Reset the current player to ‘X’
+    - Update game message
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Rubric
 
-### `npm test`
+    Board styling to look like a tic-tac-toe board - 2
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    GameContext file which contains the game state and logic - 4
 
-## The Golden Rule: 
+    Users can click spaces and it shows an ‘X’ or ‘O’ - 2
 
-🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
+    Users see a message with the current state (user turn, winner or cats game) - 2
 
-If you work on more than one feature at a time, you are guaranteed to multiply your bugs and your anxiety.
+    When a user has 3 in a row, a message is displayed with the winner - 4
 
-## Making a plan in React
-1) Make a drawing of your app. Simple "wireframes" 
-1) Component Tree
-    1) Look at the drawing and break it down into Components. Label these Components explicitly (i.e., DogList, etc)
-    1) Draw a hierarchy (or tree) of components, describing which components are parents and which are children 
-    1) Looking at the drawing, make a list of your app's features. What should a user "be able to do" with this app?
-    1) Now look at your component tree: which components "go with" which features? Draw lines and make these connections explicitly.
-1) State
-    1) Look back at the drawing and your list of features and imagine using the app. What _state_ do you need to track? 
-    1) For each piece of state, ask: "When does it change?" If the answer is, "never", then it is not state.
-    1) Similarly, find all the 'events' (user clicks, form submit, on load etc) in your app. Ask one by one, "What state changes?" for each of these events. (This should feel like the the inverse of the previous step.)
-    1) Think about how to validate each of your state changes. How will I know if state changed in response to this event? (Hint: react dev tools or console.log usually helps here.)
-1) Data flow
-    1) Look at your hierarchy and ask: which components need access to which state? Another way to ask this is: for each component, what does this component need to "do its job?". This list becomes the "props" of the component.
-    1) If a child needs state from a parent, you will need to pass props. What will you name these props? 
-    1) Notice especially if two siblings need the same state: if so, you need a callback (i.e., debit card).
-1) Pick one feature from your list and build it out. Start with its parentmost component, and work down the component chain. Do not build another feature until this one is finished (and you can prove that it is finished by validating state change).
+    When there is no winner, a message is displayed saying its a Cats game - 4
 
-## Additional considerations
-- Is any of your state redundant? For example, if you're tracking `wins`, `losses`, and `total`, you can probably get rid of `losses` state, and calculate it as `total - wins`.
-- Where should each piece of state live? How are you going to get data from where it lives to where it needs to be?
+    Users can restart the game - 2
+
+## Stretch Goals
+
+Add a /stats page that shows stats for total games played, times X has won, times O has won
+Allow users to pick emojis instead of ‘X’ or ‘O’ to play with
+Add a supabase table to track all-time game stats that loads when the page loads
