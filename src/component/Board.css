@@ -1,0 +1,8 @@
+.board {
+    border: solid black;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+}

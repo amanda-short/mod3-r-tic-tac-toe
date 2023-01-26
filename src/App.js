@@ -1,7 +1,14 @@
 import './App.css';
+import { useGameContext } from './GameContext.js';
 
 function App() {
-  return <div className="App"></div>;
+  const { state } = useGameContext();
+  return (
+    <div className="App">
+      <Section></Section>
+    </div>
+  );
 }
 
 export default App;
+
