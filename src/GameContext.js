@@ -1,14 +1,35 @@
-// import { createContext, useContext } from 'react';
+import { useState, createContext, useContext } from 'react';
 
-// const GameContext = createContext();
+const GameContext = createContext();
 
-// const GameProvider = ({ children }) => {
-//   return <GameContext.Provider value={{ state }}> {children}</GameContext.Provider>;
-// };
+const GameProvider = ({ children }) => {
+  const [move, setMove] = useState([]);
+  const [message, setMessage] = useState([]);
+  const [playerOne, setPlayerOne] = useState([]);
+  const [playerTwo, setPlayerTwo] = useState([]);
 
-// const useGameContext = () => {
-//   const context = useContext(GameContext);
-//   return context;
-// };
+  return (
+    <GameContext.Provider
+      value={{
+        move,
+        setMove,
+        message,
+        setMessage,
+        playerOne,
+        setPlayerOne,
+        playerTwo,
+        setPlayerTwo,
+      }}
+    >
+      {' '}
+      {children}
+    </GameContext.Provider>
+  );
+};
 
-// export { GameProvider, useGameContext };
+const useGameContext = () => {
+  const context = useContext(GameContext);
+  return context;
+};
+
+export { GameProvider, useGameContext };
