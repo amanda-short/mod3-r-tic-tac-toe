@@ -3,22 +3,22 @@ import { useState, createContext, useContext } from 'react';
 const GameContext = createContext();
 
 const GameProvider = ({ children }) => {
-  const [move, setMove] = useState([]);
-  const [message, setMessage] = useState([]);
-  const [playerOne, setPlayerOne] = useState([]);
-  const [playerTwo, setPlayerTwo] = useState([]);
+  const [currentPlayer, setCurrentPlayer] = useState(['X']);
+  const [active, setActive] = useState(['']);
+  const [message, setMessage] = useState('Your turn X');
+  const [board, setBoard] = useState(['X', '', 'X', '', 'O', '', '', '', '']);
 
   return (
     <GameContext.Provider
       value={{
-        move,
-        setMove,
+        currentPlayer,
+        setCurrentPlayer,
         message,
         setMessage,
-        playerOne,
-        setPlayerOne,
-        playerTwo,
-        setPlayerTwo,
+        board,
+        setBoard,
+        active,
+        setActive,
       }}
     >
       {' '}

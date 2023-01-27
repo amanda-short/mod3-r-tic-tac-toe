@@ -1,22 +1,18 @@
 import React from 'react';
+import { useGameContext } from '../GameContext.js';
 import Board from './Board.js';
 
 export default function Game() {
-  const status = 'Next player is X';
-  const moves = (
-    <li>
-      <button>Start the game</button>
-    </li>
-  );
-  const squares = Array(9).fill(null);
+  const { board } = useGameContext();
+
   return (
     <div className="game">
       <div className="game-board">
-        <Board squares={squares}></Board>
+        <Board boxes={board}></Board>
       </div>
       <div className="game-info">
-        <div>{status}</div>
-        <ul>{moves}</ul>
+        <div>Next player is X</div>
+        <button>Start game</button>
       </div>
     </div>
   );
