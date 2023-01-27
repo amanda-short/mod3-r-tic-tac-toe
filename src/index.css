@@ -39,6 +39,7 @@ body {
   color: white;
 }
 
-.board > div {
+.board {
   display: flex;
+  flex-wrap: wrap;
 }

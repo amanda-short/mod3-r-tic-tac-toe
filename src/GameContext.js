@@ -6,7 +6,7 @@ const GameProvider = ({ children }) => {
   const [currentPlayer, setCurrentPlayer] = useState(['X']);
   const [active, setActive] = useState(['']);
   const [message, setMessage] = useState('Your turn X');
-  const [board, setBoard] = useState(['X', '', 'X', '', 'O', '', '', '', '']);
+  const [board, setBoard] = useState(['X', 'X', 'O', '', '', '', '', '', '']);
 
   return (
     <GameContext.Provider
