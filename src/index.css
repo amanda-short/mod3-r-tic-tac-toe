@@ -22,11 +22,13 @@ body {
   cursor: pointer;
   position: relative;
   top: 0;
+  text-align: center;
 }
 .button:hover {
   background-color: lightseagreen;
   color: grey;
   top:4px;
+
 }
 
 .button:active {
@@ -42,4 +44,18 @@ body {
 .board {
   display: flex;
   flex-wrap: wrap;
+  width: 450px;
+  
 }
+
+.content {
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: x-large;
+  text-align: center;
+
+}
+
+
+

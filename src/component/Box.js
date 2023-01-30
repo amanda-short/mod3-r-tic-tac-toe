@@ -25,8 +25,8 @@ export default function Box({ boxContent, index }) {
 
   return (
     <>
-      <button className="button" onClick={handleClick}></button>
-      <div>
+      <div className="content">
+        <button className="button" onClick={handleClick}></button>
         {boxContent}
         <p>{index}</p>
       </div>
